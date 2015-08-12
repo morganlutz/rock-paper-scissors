@@ -1,45 +1,42 @@
 <h3>Please select rock paper or scissors</h3>
 
 <form action='/results' method='get'>
-  <div class="form-group">
-    <label form_id="rock"></label>
-    <input id="userOne" value="rock" name="userOne" class="form-control" type="hidden">
-  </div>
-    <button type="submit" class="btn">Rock</button>
-</form>
+  <fieldset>
+    <div class="form-group">
+      <label form_id="rock">rock</label>
+      <input id="userOne" value="rock" name="userOne" class="form-control" type="radio">
+    </div>
 
-<form action='/results' method='get'>
-  <div class="form-group">
-    <label form_id="paper"></label>
-    <input id="userOne" value="paper" name="userOne" class="form-control" type="hidden">
-  </div>
-  <button type="submit" class="btn">Paper</button>
-</form>
+    <div class="form-group">
+      <label form_id="paper">paper</label>
+      <input id="userOne" value="paper" name="userOne" class="form-control" type="radio">
+    </div>
 
-<form action='/results' method='get'>
-  <div class="form-group">
-    <input id="userOne" value="scissors" name="userOne" class="form-control" type="hidden">
-  </div>
-  <button value="scissors" type="submit" class="btn">Scissors</button>
-</form>
+    <div class="form-group">
+      <label form_id="scissors">scissors</label>
+      <input id="userOne" value="scissors" name="userOne" class="form-control" type="radio">
+    </div>
+  </fieldset>
+  <fieldset>
+  <label form_id="rock">rock</label>
+    <div class="form-group">
+      <input id="userTwo" value="rock" name="userTwo" class="form-control" type="radio">
+    </div>
 
-<form action='/results' method='get'>
-  <div class="form-group">
-    <input id="userTwo" value="rock" name="userTwo" class="form-control" type="hidden">
-  </div>
-<button type="submit" class="btn">Rock</button>
-</form>
+    <div class="form-group">
+      <label form_id="paper">paper</label>
+      <input id="userTwo" value="paper" name="userTwo" class="form-control" type="radio">
+    </div>
 
-<form action='/results' method='get'>
-  <div class="form-group">
-    <input id="userTwo" value="paper" name="userTwo" class="form-control" type="hidden">
-  </div>
-<button type="submit" class="btn">Paper</button>
-</form>
+    <div class="form-group">
+      <label form_id="scissors">scissors</label>
+      <input id="userTwo" value="scissors" name="userTwo" class="form-control" type="radio">
+    </div>
 
-<form action='/results' method='get'>
-  <div class="form-group">
-    <input id="userTwo" value="scissors" name="userTwo" class="form-control" type="hidden">
-  </div>
-  <button type="submit" class="btn">Scissors</button>
+    <div class="form-group">
+      <label form_id="computer">computer</label>
+      <input id="userTwo" value="computer" name="userTwo" class="form-control" type="radio">
+    </div>
+    <button type="submit" class="btn"> Submit</button>
+  </fieldset>
 </form>
