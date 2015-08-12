@@ -27,7 +27,10 @@ public class RPSGame {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/results.vtl");
 
-      String userInput = request.queryParams("userOne");
+      String userInputOne = request.queryParams("userOne");
+      String userInputTwo = request.queryParams("userTwo");
+
+
 
       model.put("winner", userInput);
 
@@ -57,4 +60,13 @@ public class RPSGame {
     return random;
   }
 
+  public static Integer userInput (String rpsValue) {
+    if (rpsValue == "rock") {
+      return 0;
+    } else if (rpsValue == "paper") {
+      return 1;
+    } esle {
+      return 2;
+    }
+  }
 }
