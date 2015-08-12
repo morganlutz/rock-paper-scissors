@@ -35,6 +35,7 @@ public class TestRPSGame extends FluentTest {
   public void returnWinner_CheckForTie_true() {
     RPSGame newGame = new RPSGame();
 
-    assertEquals("Congratulations! You Tied!", newGame.returnWinner(1,1)); 
+    assertEquals("Congratulations! You Tied!", newGame.returnWinner(1,1));
     }
+
 }
