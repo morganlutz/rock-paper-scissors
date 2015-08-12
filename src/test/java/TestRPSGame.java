@@ -18,12 +18,22 @@ public class TestRPSGame extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  /*@Test
+  @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Rock Paper Scissors");
   }
-*/
+
+  @Test
+  public void returnWinner() {
+    goTo("http://localhost:4567/");
+    find("#oneRock").click();
+    find("#twoPaper").click();
+    submit(".btn");
+    assertThat(pageSource()).contains("Paper");
+
+  }
+
   @Test
   public void returnWinner_CheckForCorrectWinner_true(){
     RPSGame newGame = new RPSGame();
@@ -38,9 +48,13 @@ public class TestRPSGame extends FluentTest {
 
     assertEquals("Congratulations! You Tied!", newGame.returnWinner(1,1));
     }
-    @Test void userInput_CheckForCorrectInt_true() {
+
+    @Test
+    public void userInput_CheckForCorrectInt_true() {
       RPSGame  newGame = new RPSGame();
 
-      assertEquals(1, newGame.userInput("paper"));
+      Integer num1 = 1;
+      assertEquals(num1, newGame.userInput("paper"));
     }
+
 }
