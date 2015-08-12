@@ -5,6 +5,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import java.lang.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -37,5 +38,9 @@ public class TestRPSGame extends FluentTest {
 
     assertEquals("Congratulations! You Tied!", newGame.returnWinner(1,1));
     }
+    @Test void userInput_CheckForCorrectInt_true() {
+      RPSGame  newGame = new RPSGame();
 
+      assertEquals(1, newGame.userInput("paper"));
+    }
 }
