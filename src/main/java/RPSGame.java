@@ -27,11 +27,20 @@ public class RPSGame {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/results.vtl");
 
-      String userInput = request.queryParams("userOne");
+      String userInputOne = request.queryParams("userOne");
+      String userInputTwo = request.queryParams("userTwo");
 
-      model.put("winner", userInput);
+      String message = "";
+      System.out.println(userInputTwo.equals("computer"));
+      if(userInputTwo.equals("computer")) {
+         message = returnWinner(userInput(userInputOne), computerChoice());
+      } else {
+         message = returnWinner(userInput(userInputOne), userInput(userInputTwo));
+      }
 
-      return new ModelAndView(model,layout);
+      model.put("winner", message);
+
+      return new ModelAndView(model,layout );
     }, new VelocityTemplateEngine());
 
   }
@@ -57,4 +66,14 @@ public class RPSGame {
     return random;
   }
 
+  public static Integer userInput (String rpsValue) {
+    System.out.println(rpsValue);
+    if ("rock".equals(rpsValue)) {
+      return 0;
+    } else if ("paper".equals(rpsValue)) {
+      return 1;
+    } else {
+      return 2;
+    }
+  }
 }
