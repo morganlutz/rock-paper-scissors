@@ -20,6 +20,7 @@ public class RPSGame {
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/home.vtl");
+
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -32,12 +33,12 @@ public class RPSGame {
 
       String message = "";
       System.out.println(userInputTwo.equals("computer"));
+
       if(userInputTwo.equals("computer")) {
          message = returnWinner(userInput(userInputOne), computerChoice());
       } else {
          message = returnWinner(userInput(userInputOne), userInput(userInputTwo));
       }
-
       model.put("winner", message);
 
       return new ModelAndView(model,layout );

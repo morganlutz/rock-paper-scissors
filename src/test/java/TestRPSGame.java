@@ -25,13 +25,21 @@ public class TestRPSGame extends FluentTest {
   }
 
   @Test
-  public void returnWinner() {
+  public void returnCorrectWinner() {
     goTo("http://localhost:4567/");
     find("#oneRock").click();
     find("#twoPaper").click();
     submit(".btn");
     assertThat(pageSource()).contains("Paper");
+  }
 
+  @Test
+  public void returnTie() {
+    goTo("http://localhost:4567/");
+    find("#oneRock").click();
+    find("#twoRock").click();
+    submit(".btn");
+    assertThat(pageSource()).contains("Tie");
   }
 
   @Test
@@ -39,7 +47,6 @@ public class TestRPSGame extends FluentTest {
     RPSGame newGame = new RPSGame();
 
     assertEquals("Congratulations! Paper Wins!", newGame.returnWinner(0, 1));
-
   }
 
   @Test
@@ -47,14 +54,13 @@ public class TestRPSGame extends FluentTest {
     RPSGame newGame = new RPSGame();
 
     assertEquals("Congratulations! You Tied!", newGame.returnWinner(1,1));
-    }
+  }
 
-    @Test
-    public void userInput_CheckForCorrectInt_true() {
-      RPSGame  newGame = new RPSGame();
+  @Test
+  public void userInput_CheckForCorrectInt_true() {
+    RPSGame  newGame = new RPSGame();
 
-      Integer num1 = 1;
-      assertEquals(num1, newGame.userInput("paper"));
-    }
-
+    Integer num1 = 1;
+    assertEquals(num1, newGame.userInput("paper"));
+  }
 }
