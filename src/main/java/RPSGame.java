@@ -30,11 +30,17 @@ public class RPSGame {
       String userInputOne = request.queryParams("userOne");
       String userInputTwo = request.queryParams("userTwo");
 
+      String message = "";
 
+      if(userInputTwo == "computer") {
+         message = returnWinner(userInput(userInputOne), computerChoice());
+      } else {
+         message = returnWinner(2, 1);
+      }
 
-      model.put("winner", userInput);
+      model.put("winner", message);
 
-      return new ModelAndView(model,layout);
+      return new ModelAndView(model,message);
     }, new VelocityTemplateEngine());
 
   }
@@ -61,11 +67,11 @@ public class RPSGame {
   }
 
   public static Integer userInput (String rpsValue) {
-    if (rpsValue == "rock") {
+    if ("rock".equals(rpsValue)) {
       return 0;
-    } else if (rpsValue == "paper") {
+    } else if ("paper".equals(rpsValue)) {
       return 1;
-    } esle {
+    } else {
       return 2;
     }
   }
