@@ -31,16 +31,16 @@ public class RPSGame {
       String userInputTwo = request.queryParams("userTwo");
 
       String message = "";
-
-      if(userInputTwo == "computer") {
+      System.out.println(userInputTwo.equals("computer"));
+      if(userInputTwo.equals("computer")) {
          message = returnWinner(userInput(userInputOne), computerChoice());
       } else {
-         message = returnWinner(2, 1);
+         message = returnWinner(userInput(userInputOne), userInput(userInputTwo));
       }
 
       model.put("winner", message);
 
-      return new ModelAndView(model,message);
+      return new ModelAndView(model,layout );
     }, new VelocityTemplateEngine());
 
   }
@@ -67,6 +67,7 @@ public class RPSGame {
   }
 
   public static Integer userInput (String rpsValue) {
+    System.out.println(rpsValue);
     if ("rock".equals(rpsValue)) {
       return 0;
     } else if ("paper".equals(rpsValue)) {
